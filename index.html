@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV Charging Scheduler</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Smart energy operations</p>
+          <h1>EV Charging Scheduler</h1>
+        </div>
+        <button id="loadSampleBtn" class="secondary-btn">Load sample data</button>
+      </header>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Charging stations</h2>
+            <button id="addStationBtn" class="secondary-btn">+ Add station</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Power / slot</th>
+                  <th>Cost / slot</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="stationsTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Charging requests</h2>
+            <button id="addRequestBtn" class="secondary-btn">+ Add request</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Arrival</th>
+                  <th>Departure</th>
+                  <th>Energy (kWh)</th>
+                  <th>Priority</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="requestsTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <section class="actions">
+        <button id="greedyBtn" class="primary-btn">Run greedy schedule</button>
+        <button id="dpBtn" class="primary-btn accent">Run DP schedule</button>
+      </section>
+
+      <section id="results" class="results-grid">
+        <article id="greedyResult" class="result-card">
+          <h3>Greedy schedule</h3>
+          <div class="summary" id="greedySummary"></div>
+          <div class="result-list" id="greedyList"></div>
+        </article>
+
+        <article id="dpResult" class="result-card">
+          <h3>Dynamic programming schedule</h3>
+          <div class="summary" id="dpSummary"></div>
+          <div class="result-list" id="dpList"></div>
+        </article>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
